@@ -5,10 +5,15 @@
   text-align: center;
 }
 
-.glyphicon {
+.glyphicon-plus {
   margin-left: 5px;
 }
 
 .TodoList {
   margin-top: 5px
+}
+
+.btn-secondary:hover{
+  color: #fff;
+  background-color: #f00;
 }

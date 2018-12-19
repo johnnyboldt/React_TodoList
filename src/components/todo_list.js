@@ -1,13 +1,22 @@
 import React, { Component }  from 'react';
-import TodoItem from './todo_input';
+import TodoListItem from './todo_item';
 
 class TodoList extends Component {
+    constructor(props){
+        super(props);
+    }
+
     render() {
+        const todoItems = this.props.todoItems.map((todoItem) => {
+            return (
+                <TodoListItem todoItem={todoItem} removeTodoItem={this.props.removeTodoItem}/>
+            );
+        });
+
+
         return (
             <ul className="list-group TodoList">
-                <li className="list-group-item">Cras justo odio</li>
-                <li className="list-group-item">Dapibus ac facilisis in</li>
-                <li className="list-group-item">Morbi leo risus</li>
+                {todoItems}
             </ul>
         );
     }
