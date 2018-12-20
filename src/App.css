@@ -9,11 +9,25 @@
   margin-left: 5px;
 }
 
+.glyphicon-check {
+  margin-left: 10px;
+}
+
 .TodoList {
   margin-top: 5px
 }
 
-.btn-secondary:hover{
+/*could use props or state instead to switch between btn-secondary and btn-danger or btn-success*/
+.hover-red:hover{
   color: #fff;
-  background-color: #f00;
+  background-color: #d43f3a;
+}
+
+.hover-green:hover{
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.line-through {
+  text-decoration: line-through;
 }

@@ -11,7 +11,6 @@ class TodoInput extends Component {
 
     render(){
         return (
-
             <form onSubmit={this.onFormSubmit} className="input-group">
                 <input 
                     placeholder="Enter a todo list item"
@@ -34,10 +33,17 @@ class TodoInput extends Component {
 
     onFormSubmit(event) {
         event.preventDefault();
-        // We need to add the item
-        this.props.addTodoItem(this.state.todoItem);
-        this.setState({ todoItem: ''})
+        if(this.state.todoItem)
+        {
+            //Will add id when we hook up to back end.
+            this.props.addTodoItem({'text': this.state.todoItem, 'completed': false});
+            this.setState({ todoItem: ''})
+        }
     }
+}
+
+function validate(values){
+
 }
 
 export default TodoInput;

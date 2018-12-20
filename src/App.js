@@ -29,13 +29,29 @@ class App extends Component{
     );
   }
 
+  toggleTodoItemChecked(todoItem){
+    var index = this.state.todoItems.indexOf(todoItem);
+    const newToDoITems = this.state.todoItems.slice();
+    newToDoITems[index].completed = !newToDoITems[index].completed;
+    this.setState({
+      todoItems: newToDoITems
+    });
+  }
+
+
 
   render(){
     return(
       <div className="App container">
         <Title />
-        <TodoInput addTodoItem={this.addTodoItem}/>
-        <TodoList todoItems={this.state.todoItems} removeTodoItem={this.removeTodoItem.bind(this)}/>
+        <TodoInput
+          addTodoItem={this.addTodoItem}
+        />
+        <TodoList 
+          todoItems={this.state.todoItems} 
+          removeTodoItem={this.removeTodoItem.bind(this)}
+          toggleTodoItemChecked={this.toggleTodoItemChecked.bind(this)}
+        />
       </div>
     );
   }

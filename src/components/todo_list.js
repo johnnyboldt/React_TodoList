@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import TodoListItem from './todo_item';
 
+//Todo: refactor to functional component
 class TodoList extends Component {
     constructor(props){
         super(props);
@@ -9,10 +10,13 @@ class TodoList extends Component {
     render() {
         const todoItems = this.props.todoItems.map((todoItem) => {
             return (
-                <TodoListItem todoItem={todoItem} removeTodoItem={this.props.removeTodoItem}/>
+                <TodoListItem
+                    todoItem={todoItem}
+                    removeTodoItem={this.props.removeTodoItem}
+                    toggleTodoItemChecked={this.props.toggleTodoItemChecked}
+                />
             );
         });
-
 
         return (
             <ul className="list-group TodoList">
