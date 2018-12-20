@@ -13,23 +13,21 @@ class App extends Component{
     this.state = {
         todoItems: []
     };
-
-    this.addTodoItem = this.addTodoItem.bind(this);
   }
 
-  addTodoItem(todoItem){
+  addTodoItem = (todoItem) => {
     this.setState({
       todoItems: [...this.state.todoItems, todoItem]
     });
   }
 
-  removeTodoItem(todoItem){
+  removeTodoItem = (todoItem) => {
     this.setState(
       _.pull(this.state.todoItems, todoItem)
     );
   }
 
-  toggleTodoItemChecked(todoItem){
+  toggleTodoItemChecked = (todoItem) => {
     var index = this.state.todoItems.indexOf(todoItem);
     const newToDoITems = this.state.todoItems.slice();
     newToDoITems[index].completed = !newToDoITems[index].completed;
@@ -37,8 +35,6 @@ class App extends Component{
       todoItems: newToDoITems
     });
   }
-
-
 
   render(){
     return(
@@ -49,8 +45,8 @@ class App extends Component{
         />
         <TodoList 
           todoItems={this.state.todoItems} 
-          removeTodoItem={this.removeTodoItem.bind(this)}
-          toggleTodoItemChecked={this.toggleTodoItemChecked.bind(this)}
+          removeTodoItem={this.removeTodoItem}
+          toggleTodoItemChecked={this.toggleTodoItemChecked}
         />
       </div>
     );
