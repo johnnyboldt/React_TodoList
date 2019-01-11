@@ -1,10 +1,9 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
 import "./App.css";
-import Title from "./components/title";
-import TodoInput from "./components/todo_input";
-import TodoList from "./components/todo_list";
-import _ from 'lodash';
+import { TodoInput } from "./TodoInput";
+import { TodoList } from "./TodoList";
+import _ from 'lodash-es';
 
 class App extends Component{
   constructor(props){
@@ -39,7 +38,12 @@ class App extends Component{
   render(){
     return(
       <div className="App container">
-        <Title />
+        <div>
+          <h1 className="display-2 text-success">
+            <b>Todo List</b>
+            <span className="glyphicon glyphicon-check" />
+          </h1>
+        </div>
         <TodoInput
           addTodoItem={this.addTodoItem}
         />
